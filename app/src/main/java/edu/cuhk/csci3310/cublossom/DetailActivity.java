@@ -77,7 +77,7 @@ public class DetailActivity extends AppCompatActivity {
         oFlorence = florence;
         oRichness = richness;
         oFlowerName = flowerName;
-
+        System.out.println("Testing push");
 
         Button buttonFewer = (Button)findViewById(R.id.buttonFewer);
         buttonFewer.setOnClickListener(new View.OnClickListener() {
