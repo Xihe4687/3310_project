@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.os.FileUtils;
 import android.util.Log;
 import android.view.View;
+import android.content.Context;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -36,6 +37,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private FlowerListAdapter mAdapter;
@@ -53,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
     private final String mDrawableFilePath = "android.resource://edu.cuhk.csci3310.cublossom/drawable/";
     private String sharedPrefFile = "edu.cuhk.csci3310.cublossom";
     private SharedPreferences mPreferences;
+    private String mDetailsMessage;
+    public static final String EXTRA_MESSAGE = "edu.cuhk.csci3310.cueat.extra.MESSAGE";
 
     // TODO:
     // You may define more data members as needed
@@ -70,8 +74,9 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+                startActivity(intent);
+
             }
         });
         //------------------------------------------------------------------------------------------
