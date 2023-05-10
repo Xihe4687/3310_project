@@ -3,4 +3,5 @@
     <string name="title_activity_detail">DetailActivity</string>
     <string name="flower">flower</string>
     <string name="genus_text">Genus</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>
