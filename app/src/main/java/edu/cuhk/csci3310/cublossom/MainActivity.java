@@ -16,6 +16,10 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.FileUtils;
 import android.util.Log;
+import android.view.View;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -60,6 +64,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mPreferences = getSharedPreferences(sharedPrefFile,0);
         // Initially put random data into the image list, modify to pass correct info read from JSON
+
+        //------------------------------------------------------------------------------------------
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+        //------------------------------------------------------------------------------------------
+
         try {
             this.readJson();
         } catch (IOException | JSONException e) {
