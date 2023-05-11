@@ -14,7 +14,7 @@
         android:layout_height="250sp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:contentDescription="flower"
+        android:contentDescription="@string/canteen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -30,27 +30,26 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="@string/flower"
+        android:text="@string/canteen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_large" />
 
     <TextView
-        android:id="@+id/title_genus"
+        android:id="@+id/title_opening_time"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="174dp"
-        android:layout_marginRight="174dp"
-        android:text="Genus"
+        android:text="Opening Time"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_name" />
 
     <TextView
-        android:id="@+id/text_genus"
+        android:id="@+id/text_time"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -58,20 +57,20 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="@string/genus_text"
+        android:text="@string/time_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_genus" />
+        app:layout_constraintTop_toBottomOf="@+id/title_opening_time" />
 
     <TextView
-        android:id="@+id/text_florence"
+        android:id="@+id/text_rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:text="Floral Abundance"
+        android:text="Canteen Rating"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_genus" />
+        app:layout_constraintTop_toBottomOf="@+id/text_time" />
 
     <Button
         android:id="@+id/buttonFewer"
@@ -82,14 +81,14 @@
         android:text="-"
         android:onClick="minusRichness"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_florence" />
+        app:layout_constraintTop_toBottomOf="@+id/text_rating" />
 
     <TextView
-        android:id="@+id/textRichness"
+        android:id="@+id/textRating"
         android:layout_width="84dp"
         android:layout_height="48dp"
         android:gravity="center"
-        android:text="Richness"
+        android:text="Rating"
         app:layout_constraintStart_toEndOf="@+id/buttonFewer"
         app:layout_constraintTop_toTopOf="@+id/buttonFewer" />
 
@@ -99,7 +98,7 @@
         android:layout_height="48dp"
         android:text="+"
         android:onClick="plusRichness"
-        app:layout_constraintStart_toEndOf="@+id/textRichness"
+        app:layout_constraintStart_toEndOf="@+id/textRating"
         app:layout_constraintTop_toTopOf="@+id/buttonFewer" />
 
     <Button

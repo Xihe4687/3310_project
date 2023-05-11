@@ -4,11 +4,9 @@ package edu.cuhk.csci3310.cublossom;
 // Include your personal particular here
 //
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +15,6 @@ import android.widget.RatingBar;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,29 +25,29 @@ public class FlowerListAdapter extends Adapter<FlowerListAdapter.FlowerViewHolde
     private LayoutInflater mInflater;
 
     private final ArrayList<String> mImagePathList;
-    private final ArrayList<Flower> mFlowerList;
+    private final ArrayList<Canteen> mCanteenList;
     public static String extraImagePath = null;
-    public static String extraFlowerName = null;
-    public static String extraGenus = null;
-    public static int extraRichness = 0;
+    public static String extraCanteenName = null;
+    public static String extraOpeningTime = null;
+    public static int extraRating = 0;
 
 
     class FlowerViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView flowerImageItemView;
+        ImageView canteenImageItemView;
         RatingBar flowerRichnessBar;
 
         final FlowerListAdapter mAdapter;
 
         public FlowerViewHolder(View itemView, FlowerListAdapter adapter) {
             super(itemView);
-            flowerImageItemView = itemView.findViewById(R.id.image);
-            flowerRichnessBar = itemView.findViewById(R.id.flowerBar);
+            canteenImageItemView = itemView.findViewById(R.id.image);
+            flowerRichnessBar = itemView.findViewById(R.id.ratingBar);
             this.mAdapter = adapter;
 
             // Event handling registration, page navigation goes here
             // Event handling registration, page navigation goes here
-            flowerImageItemView.setOnClickListener(new View.OnClickListener() {
+            canteenImageItemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     // Get the position of the item that was clicked.
@@ -59,13 +56,13 @@ public class FlowerListAdapter extends Adapter<FlowerListAdapter.FlowerViewHolde
                     t.show();
                     Intent intent = new Intent(context, DetailActivity.class);
                     extraImagePath = mImagePathList.get(position);
-                    extraFlowerName = mFlowerList.get(position).getFlowerName();
-                    extraGenus = mFlowerList.get(position).getGenus();
-                    extraRichness = mFlowerList.get(position).getRichness();
+                    extraCanteenName = mCanteenList.get(position).getCanteenName();
+                    extraOpeningTime = mCanteenList.get(position).getOpeningTime();
+                    extraRating = mCanteenList.get(position).getRating();
                     intent.putExtra("imagePath", extraImagePath);
-                    intent.putExtra("flowerName", extraFlowerName);
-                    intent.putExtra("genus", extraGenus);
-                    intent.putExtra("richness", extraRichness);
+                    intent.putExtra("canteenName", extraCanteenName);
+                    intent.putExtra("openingTime", extraOpeningTime);
+                    intent.putExtra("rating", extraRating);
                     intent.putExtra("position", position);
                     context.startActivity(intent);
                 }
@@ -76,11 +73,11 @@ public class FlowerListAdapter extends Adapter<FlowerListAdapter.FlowerViewHolde
     }
 
     public FlowerListAdapter(Context context,
-                            ArrayList<String> imagePathList, ArrayList<Flower> flowerList) {
+                            ArrayList<String> imagePathList, ArrayList<Canteen> canteenList) {
         this.context = context;
         mInflater = LayoutInflater.from(context);
         this.mImagePathList = imagePathList;
-        this.mFlowerList = flowerList;
+        this.mCanteenList = canteenList;
     }
 
     @NonNull
@@ -93,14 +90,14 @@ public class FlowerListAdapter extends Adapter<FlowerListAdapter.FlowerViewHolde
     @Override
     public void onBindViewHolder(@NonNull FlowerViewHolder holder, int position) {
         String mImagePath = mImagePathList.get(position);
-        int rate = mFlowerList.get(position).getRichness();
+        int rate = mCanteenList.get(position).getRating();
         Uri uri = Uri.parse(mImagePath);
         // Update the following to display correct information based on the given position
 
 
         // Set up View items for this row (position), modify to show correct information read from the CSV
-        holder.flowerImageItemView.setImageURI(null);
-        holder.flowerImageItemView.setImageURI(uri);
+        holder.canteenImageItemView.setImageURI(null);
+        holder.canteenImageItemView.setImageURI(uri);
         holder.flowerRichnessBar.setRating(rate);
 
     }

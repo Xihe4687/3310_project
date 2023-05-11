@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">CU Blossom</string>
     <string name="title_activity_detail">DetailActivity</string>
-    <string name="flower">flower</string>
-    <string name="genus_text">Genus</string>
+    <string name="canteen">canteen</string>
+    <string name="time_text">Time</string>
     <string name="title_activity_maps">MapsActivity</string>
 </resources>

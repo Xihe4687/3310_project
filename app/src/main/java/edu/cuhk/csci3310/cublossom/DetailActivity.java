@@ -15,20 +15,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 public class DetailActivity extends AppCompatActivity {
     private static final String TAG = "DetailActivity";
     // TODO:
     // Define other attributes as needed
     private String imagePath;
-    private String flowerName;
-    private String genus;
-    private String florence;
-    private int richness;
-    private String oFlowerName;
-    private String oFlorence;
-    private int oRichness;
+    private String canteenName;
+    private String openingTime;
+    private String ratingContent;
+    private int rating;
+    private String oCanteenName;
+    private String oRatingContent;
+    private int oRating;
     private int position;
     private SharedPreferences mPreferences;
     private boolean backPress;
@@ -48,35 +47,35 @@ public class DetailActivity extends AppCompatActivity {
         Uri uri = Uri.parse(imagePath);
         ImageView imageLarge = findViewById(R.id.image_large);
         imageLarge.setImageURI(uri);
-        flowerName = intent.getStringExtra("flowerName");
+        canteenName = intent.getStringExtra("canteenName");
         EditText editName = findViewById(R.id.edit_name);
-        editName.setText(flowerName.toCharArray(),0,flowerName.length());
-        genus = intent.getStringExtra("genus");
-        TextView textGenus = findViewById(R.id.text_genus);
-        textGenus.setText(genus);
-        richness = intent.getIntExtra("richness", 3);
-        TextView textRichness = findViewById(R.id.textRichness);
+        editName.setText(canteenName.toCharArray(),0,canteenName.length());
+        openingTime = intent.getStringExtra("openingTime");
+        TextView textGenus = findViewById(R.id.text_time);
+        textGenus.setText(openingTime);
+        rating = intent.getIntExtra("rating", 3);
+        TextView textRichness = findViewById(R.id.textRating);
 
-        if (richness == 1) {
-            florence = "Scattered";
-            textRichness.setText(florence);
-        } else if (richness == 2) {
-            florence = "Clustered";
-            textRichness.setText(florence);
+        if (rating == 1) {
+            ratingContent = "Not good";
+            textRichness.setText(ratingContent);
+        } else if (rating == 2) {
+            ratingContent = "Fair";
+            textRichness.setText(ratingContent);
         } else {
-            florence = "High-Full";
-            textRichness.setText(florence);
+            ratingContent = "Delicious";
+            textRichness.setText(ratingContent);
         }
 
         position = intent.getIntExtra("position", 0);
-        florence = mPreferences.getString("florence",null);
-        textRichness.setText(florence);
-        richness = mPreferences.getInt("richness", 0);
-        flowerName = mPreferences.getString("flowerName", null);
-        editName.setText(flowerName.toCharArray(), 0, flowerName.length());
-        oFlorence = florence;
-        oRichness = richness;
-        oFlowerName = flowerName;
+        ratingContent = mPreferences.getString("ratingContent",null);
+        textRichness.setText(ratingContent);
+        rating = mPreferences.getInt("rating", 0);
+        canteenName = mPreferences.getString("canteenName", null);
+        editName.setText(canteenName.toCharArray(), 0, canteenName.length());
+        oRatingContent = ratingContent;
+        oRating = rating;
+        oCanteenName = canteenName;
 
         Button buttonFewer = (Button)findViewById(R.id.buttonFewer);
         buttonFewer.setOnClickListener(new View.OnClickListener() {
@@ -111,74 +110,38 @@ public class DetailActivity extends AppCompatActivity {
         });
     }
 
-/*
-    @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
-        super.onSaveInstanceState(savedInstanceState);
-        System.out.println("----------Save-------");
-        savedInstanceState.putString("flowerName", flowerName);
-        System.out.println(flowerName);
-        savedInstanceState.putInt("richness", richness);
-        System.out.println(richness);
-        savedInstanceState.putString("florence", florence);
-        System.out.println(florence);
-        // TODO:
-        // Perform necessary data-persistence steps
-
-
-
-
-    }*/
-
- /*   @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        // TODO:
-        // Perform necessary data-persistence steps
-        System.out.println("--------------Restore-----------");
-        EditText editName = findViewById(R.id.edit_name);
-        editName.setText(mPreferences.getString("flowerName", null));
-        TextView textRichness = findViewById(R.id.textRichness);
-        textRichness.setText(mPreferences.getString("florence", null));
-        richness = mPreferences.getInt("richness", 0);
-
-
-
-
-
-    }*/
 
     // TODO:
     // Add more utility methods as needed
     public void minusRichness(){
-        if(richness >= 2)
-            richness--;
+        if(rating >= 2)
+            rating--;
         else
             return;
-        TextView textFlorence = findViewById(R.id.textRichness);
-        if(richness == 1)
+        TextView textRating = findViewById(R.id.textRating);
+        if(rating == 1)
         {
-            florence = "Scattered";
-            textFlorence.setText(florence);
+            ratingContent = "Not good";
+            textRating.setText(ratingContent);
         }else {
-            florence = "Clustered";
-            textFlorence.setText(florence);
+            ratingContent = "Fair";
+            textRating.setText(ratingContent);
         }
     }
 
     public void plusRichness(){
-        if(richness <= 2)
-            richness++;
+        if(rating <= 2)
+            rating++;
         else
             return;
-        TextView textFlorence = findViewById(R.id.textRichness);
-        if(richness == 2)
+        TextView textRating = findViewById(R.id.textRating);
+        if(rating == 2)
         {
-            florence = "Clustered";
-            textFlorence.setText(florence);
+            ratingContent = "Fair";
+            textRating.setText(ratingContent);
         }else {
-            florence = "High-Full";
-            textFlorence.setText(florence);
+            ratingContent = "Delicious";
+            textRating.setText(ratingContent);
         }
     }
 
@@ -186,8 +149,8 @@ public class DetailActivity extends AppCompatActivity {
     {
         Intent intent = new Intent(DetailActivity.this, MainActivity.class);
         intent.putExtra("position", position);
-        intent.putExtra("flowerName", flowerName);
-        intent.putExtra("richness", richness);
+        intent.putExtra("canteenName", canteenName);
+        intent.putExtra("rating", rating);
         startActivity(intent);
 
     }
@@ -201,10 +164,10 @@ public class DetailActivity extends AppCompatActivity {
     public void cancelEntry()
     {
         EditText editName = findViewById(R.id.edit_name);
-        editName.setText(oFlowerName);
-        TextView textRichness = findViewById(R.id.textRichness);
-        textRichness.setText(oFlorence);
-        richness = oRichness;
+        editName.setText(oCanteenName);
+        TextView textRating = findViewById(R.id.textRating);
+        textRating.setText(oRatingContent);
+        rating = oRating;
 
     }
 
@@ -216,11 +179,11 @@ public class DetailActivity extends AppCompatActivity {
             return;
         System.out.println("-----------Pause--------");
         SharedPreferences.Editor preferenceEditor = mPreferences.edit();
-        preferenceEditor.putInt("richness", richness);
-        preferenceEditor.putString("florence", florence);
+        preferenceEditor.putInt("rating", rating);
+        preferenceEditor.putString("ratingContent", ratingContent);
         EditText editName = findViewById(R.id.edit_name);
-        flowerName = editName.getText().toString();
-        preferenceEditor.putString("flowerName", flowerName);
+        canteenName = editName.getText().toString();
+        preferenceEditor.putString("canteenName", canteenName);
         preferenceEditor.apply();
         System.out.println("--------Pause Over---------");
     }

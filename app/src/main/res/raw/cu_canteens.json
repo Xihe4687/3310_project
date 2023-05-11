@@ -1,0 +1,34 @@
+{
+  "canteens": [
+    {
+      "filename": "image01.jpg",
+      "canteen_name": "New Asia College Canteen",
+      "opening_time": "Working day & Sunday: 11:00-20:00,\n Saturday: Close",
+      "rating": 2
+    },
+    {
+      "filename": "image02.jpg",
+      "canteen_name": "Medical Canteen",
+      "opening_time": "Working day: 11:00-19:00, \n Public holiday: Close",
+      "rating": 3
+    },
+    {
+      "filename": "image03.jpg",
+      "canteen_name": "Coffee Corner",
+      "opening_time": "Monday-Saturday: 10:00-19:30,\n Sunday: Close",
+      "rating": 3
+    },
+    {
+      "filename": "image04.jpg",
+      "canteen_name": "Franklin Students Canteen",
+      "opening_time": "Monday-Friday, Sunday: 10:00-19:30, \n Saturday: Close",
+      "rating": 2
+    },
+    {
+      "filename": "image05.jpg",
+      "canteen_name": "United College Student Canteen",
+      "opening_time": "Monday-Saturday: 8:00-20:00, \n Sunday & public holidays: Close",
+      "rating": 1
+    }
+  ]
+}

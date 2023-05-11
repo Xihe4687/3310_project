@@ -23,15 +23,15 @@
             app:srcCompat="@drawable/image01" />
 
         <RatingBar
-            android:id="@+id/flowerBar"
+            android:id="@+id/ratingBar"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
             android:layout_marginBottom="8dp"
             android:background="#FFFFFF"
             android:isIndicator="true"
             android:numStars="3"
-            android:progressDrawable="@drawable/flowers_layer"
+            android:progressDrawable="@drawable/canteen_layer"
             android:stepSize="1.0"/>
 
     </LinearLayout>
